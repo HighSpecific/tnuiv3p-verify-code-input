@@ -18,8 +18,8 @@ export const useVerifyCodeInput = (
   const inputValue = ref<string>('')
   // 验证码的值
   const codeValue = computed<string[]>(() =>
-    Array.from({ length: props.length }).map(
-      (_, i) => inputValue.value?.[i] ?? ''
+    Array.from({ length: props.length }).map((_, i) =>
+      inputValue.value?.[i] !== undefined ? inputValue.value?.[i] : ''
     )
   )
   // 当前激活的输入框索引
@@ -27,7 +27,7 @@ export const useVerifyCodeInput = (
   watch(
     () => props.modelValue,
     (val) => {
-      inputValue.value = String(val ?? '')
+      inputValue.value = String(val !== undefined ? val : '')
     },
     {
       immediate: true,

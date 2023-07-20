@@ -13,11 +13,13 @@
 
   @include e(input) {
     position: absolute;
+    background-color: transparent;
     left: -100%;
     top: 0;
     width: 200%;
     height: 100%;
     padding: 0rpx;
+    z-index: 2;
     caret-color: transparent; // 隐藏光标
   }
 
@@ -28,6 +30,7 @@
     height: fit-content;
     display: flex;
     align-items: center;
+    z-index: 1;
   }
 
   /* 验证码输入框 start */
