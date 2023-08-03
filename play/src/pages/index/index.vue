@@ -1,13 +1,25 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import TnPopup from '@tuniao/tnui-vue3-uniapp/components/popup/src/popup.vue'
 import TnVerifyCodeInput from '../../packages/src/index.vue'
 
 const message = ref<string>('欢迎开发TuniaoUI v3 uniapp 插件')
 
 const codeInput = ref<string>('')
+
+const openPopup = ref<boolean>(false)
+const showPopup = () => {
+  openPopup.value = true
+}
 </script>
 
 <template>
+  <TnPopup v-model="openPopup" open-direction="center" width="90%">
+    <view class="popup-verify-input">
+      <TnVerifyCodeInput :length="6" :focus="openPopup" />
+    </view>
+  </TnPopup>
+  <view @tap.stop="showPopup">打开弹框</view>
   <view class="content">
     <view class="message">{{ message }}</view>
     {{ codeInput }}
@@ -16,6 +28,12 @@ const codeInput = ref<string>('')
     </view>
     <view class="demo">
       <TnVerifyCodeInput v-model="codeInput" disabled />
+    </view>
+    <view class="demo">
+      <TnVerifyCodeInput password />
+    </view>
+    <view class="demo">
+      <TnVerifyCodeInput width="100" password />
     </view>
     <view class="demo">
       <TnVerifyCodeInput :length="6" />
@@ -98,5 +116,14 @@ const codeInput = ref<string>('')
   .demo {
     margin-top: 50rpx;
   }
+}
+
+.popup-verify-input {
+  position: relative;
+  width: 100%;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

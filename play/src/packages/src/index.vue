@@ -8,7 +8,7 @@ import {
 const props = defineProps(verifyCodeInputProps)
 const emits = defineEmits(verifyCodeInputEmits)
 
-const { ns, colorClass, colorStyle, inputItemStyle } =
+const { ns, colorClass, colorStyle, inputItemStyle, passwordDotStyle } =
   useVerifyCodeInputCustomStyle(props)
 const {
   inputValue,
@@ -109,10 +109,10 @@ const {
             <view
               v-if="item !== ''"
               class="code-value"
-              :class="[colorClass('text', true)]"
-              :style="colorStyle('text', true)"
+              :class="[colorClass('text', true), ns.is('dot', password)]"
+              :style="{ ...colorStyle('text', true), ...passwordDotStyle }"
             >
-              {{ item }}
+              {{ password ? '' : item }}
             </view>
           </view>
         </view>

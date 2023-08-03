@@ -185,6 +185,7 @@ const codeInput = ref<string>('')
 | focus                 | 是否自动聚焦到当前验证码输入框                               | Boolean          | `true`   | `false`                                                      |
 | disabled              | 禁用验证码输入框                                             | Boolean          | `false`  | `true`                                                       |
 | breath                | 当前验证码输入框激活时是否显示呼吸灯效果，具体每一个类型对应的说明详细请看上面说明 | Boolean          | `true`   | `false`                                                      |
+| password              | 密码输入                                                     | Boolean          | `false`  | `true`                                                       |
 | input-type            | 验证码输入框的类型                                           | String           | `border` | `border-vline` \ `border-hline` \ `middle-hline` \ `middle-vline` \ `bottom-hline` |
 | inactive-color        | 默认显示提示框的颜色                                         | String           | -        | -                                                            |
 | active-color          | 激活时提示框显示的颜色                                       | String           | -        | -                                                            |

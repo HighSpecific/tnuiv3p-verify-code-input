@@ -131,10 +131,25 @@ export const useVerifyCodeInputCustomStyle = (props: VerifyCodeInputProps) => {
     return style
   })
 
+  // 保密点的样式
+  const passwordDotStyle = computed<CSSProperties>(() => {
+    const style: CSSProperties = {}
+
+    if (props.password) {
+      style.width = props.width
+        ? `calc(${formatDomSizeValue(props.width)} * 0.4)`
+        : '30rpx'
+      style.height = style.width
+    }
+
+    return style
+  })
+
   return {
     ns,
     colorClass,
     colorStyle,
     inputItemStyle,
+    passwordDotStyle,
   }
 }

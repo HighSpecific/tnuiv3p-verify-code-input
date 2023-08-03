@@ -21,6 +21,7 @@
     padding: 0rpx;
     z-index: 2;
     caret-color: transparent; // 隐藏光标
+    opacity: 0;
   }
 
   /* 验证码输入 */
@@ -128,6 +129,11 @@
         line-height: 1;
         transform: translate(-50%, -50%);
         font-size: inherit;
+
+        @include when(dot) {
+          border-radius: 50%;
+          background-color: #333;
+        }
       }
       /* 输入框的值 end */
     }

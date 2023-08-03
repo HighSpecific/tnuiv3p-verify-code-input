@@ -48,6 +48,10 @@ export const verifyCodeInputProps = buildProps({
    */
   disabled: Boolean,
   /**
+   * @description 隐藏输入内容
+   */
+  password: Boolean,
+  /**
    * @description 当前激活的验证码输入框是否带呼吸效果
    */
   breath: {
